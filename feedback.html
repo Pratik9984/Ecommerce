@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Feedback</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #fdfbfb, #ebedee);
+      color: #333;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      animation: fadeIn 1.2s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .feedback-container {
+      background: white;
+      padding: 2rem 2.5rem;
+      border-radius: 16px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 500px;
+      text-align: center;
+      animation: slideUp 1s ease;
+    }
+
+    @keyframes slideUp {
+      from { transform: translateY(40px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    h2 {
+      margin-bottom: 1.5rem;
+      color: #2b6777;
+      font-size: 1.8rem;
+    }
+
+    label {
+      font-weight: 600;
+      display: block;
+      margin: 1rem 0 0.5rem;
+      text-align: left;
+    }
+
+    textarea {
+      width: 100%;
+      padding: 0.7rem;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+      resize: vertical;
+    }
+
+    .stars-wrapper {
+      display: flex;
+      justify-content: center;
+      margin-top: 0.5rem;
+    }
+
+    .stars {
+      display: flex;
+      gap: 8px;
+      font-size: 2rem;
+    }
+
+    .stars span {
+      color: #ccc;
+      cursor: pointer;
+      transition: transform 0.2s, color 0.3s;
+    }
+
+    .stars span:hover,
+    .stars span:hover ~ span {
+      color: #ffc107;
+      transform: scale(1.2);
+    }
+
+    .stars span.active {
+      color: #ffc107;
+      text-shadow: 0 0 5px #ffeb3b;
+    }
+
+    button {
+      margin-top: 1.5rem;
+      padding: 0.75rem 1.5rem;
+      background-color: #52ab98;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #2b6777;
+    }
+
+    .thank-you-message {
+      margin-top: 1rem;
+      color: #4caf50;
+      font-weight: bold;
+      display: none;
+      animation: popIn 0.5s ease;
+    }
+
+    @keyframes popIn {
+      from { transform: scale(0.8); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    .back-link {
+      margin-top: 2rem;
+      display: inline-block;
+      text-decoration: none;
+      color: #2b6777;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    .back-link:hover {
+      color: #1d4354;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="feedback-container">
+    <h2>💬 We'd love your feedback!</h2>
+    <form id="feedbackForm">
+      <label>Rate your experience</label>
+      <div class="stars-wrapper">
+        <div class="stars" id="starRating">
+          <span data-star="1">&#9733;</span>
+          <span data-star="2">&#9733;</span>
+          <span data-star="3">&#9733;</span>
+          <span data-star="4">&#9733;</span>
+          <span data-star="5">&#9733;</span>
+        </div>
+      </div>
+
+      <label for="comment">Comments</label>
+      <textarea id="comment" rows="4" placeholder="Share your thoughts..."></textarea>
+
+      <button type="submit">Submit Feedback</button>
+      <div class="thank-you-message" id="thankYouMsg">✅ Thank you for your feedback!</div>
+    </form>
+
+    <a href="Ecommerce.html" class="back-link">⬅️ Back to Home</a>
+  </div>
+
+  <script>
+    const stars = document.querySelectorAll("#starRating span");
+    let selectedRating = 0;
+
+    stars.forEach(star => {
+      star.addEventListener("click", () => {
+        selectedRating = parseInt(star.getAttribute("data-star"));
+        stars.forEach(s => {
+          s.classList.toggle("active", parseInt(s.getAttribute("data-star")) <= selectedRating);
+        });
+      });
+    });
+
+    document.getElementById("feedbackForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+      if (selectedRating === 0) {
+        alert("Please select a star rating.");
+        return;
+      }
+      document.getElementById("thankYouMsg").style.display = "block";
+      this.reset();
+      stars.forEach(s => s.classList.remove("active"));
+      selectedRating = 0;
+    });
+  </script>
+
+</body>
+</html>

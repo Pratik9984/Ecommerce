@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Payment Page</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #c9d6ff, #e2e2e2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      overflow: hidden;
+    }
+
+    .payment-box {
+      background: white;
+      padding: 2rem 3rem;
+      border-radius: 15px;
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+
+    .payment-box:hover {
+      transform: scale(1.02);
+    }
+
+    h2 {
+      color: #2d3748;
+    }
+
+    #amount {
+      font-size: 1.1rem;
+      color: #4a5568;
+      margin: 10px 0;
+    }
+
+    button {
+      padding: 1rem 2rem;
+      font-size: 1rem;
+      background: #2dce89;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-top: 20px;
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 15px rgba(45, 206, 137, 0.3);
+    }
+
+    button:disabled {
+      background-color: #ccc;
+      cursor: not-allowed;
+      box-shadow: none;
+    }
+
+    button:hover:enabled {
+      background: #28b57a;
+      transform: scale(1.05);
+    }
+
+    .success-popup {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: #ffffff;
+      border-radius: 12px;
+      padding: 2rem;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+      display: none;
+      text-align: center;
+      animation: popFade 0.4s ease-out forwards;
+    }
+
+    .success-popup.show {
+      display: block;
+    }
+
+    .checkmark {
+      font-size: 3rem;
+      color: #38a169;
+      animation: bounce 0.5s ease-in-out;
+    }
+
+    @keyframes popFade {
+      from {
+        opacity: 0;
+        transform: scale(0.5) translate(-50%, -50%);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1) translate(-50%, -50%);
+      }
+    }
+
+    @keyframes bounce {
+      0%, 100% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.3);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="payment-box">
+    <h2>Pay Now</h2>
+    <p id="amount">Loading total...</p>
+    <button id="pay-btn">Make Payment</button>
+  </div>
+
+  <div class="success-popup" id="popup">
+    <div class="checkmark">✅</div>
+    <h3>Payment Successful!</h3>
+    <p>Redirecting...</p>
+  </div>
+
+  <script>
+    const amountEl = document.getElementById("amount");
+    const payBtn = document.getElementById("pay-btn");
+    let total = 0;
+
+    try {
+      const item = JSON.parse(localStorage.getItem("buyNowItem"));
+      if (!item) throw new Error("No item found");
+
+      if (Array.isArray(item)) {
+        total = item.reduce((sum, i) => sum + (i.price || 0), 0);
+      } else if (typeof item === "object" && typeof item.price === "number") {
+        total = item.price;
+      } else {
+        throw new Error("Invalid item format");
+      }
+
+      amountEl.textContent = `Total Amount: ₹${total}`;
+    } catch (err) {
+      amountEl.textContent = "⚠️ No item selected.";
+      payBtn.disabled = true;
+    }
+
+    payBtn.onclick = function () {
+      const popup = document.getElementById("popup");
+      popup.classList.add("show");
+
+      setTimeout(() => {
+        localStorage.removeItem("buyNowItem");
+        localStorage.removeItem("customerData");
+        window.location.href = "thankyou.html";
+      }, 2000);
+    };
+  </script>
+
+</body>
+</html>

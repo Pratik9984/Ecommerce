@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ElectroShop</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <div class="logo">🔌 ElectroShop</div>
+    <nav>
+      <ul>
+        <li><a href="#">Deals</a></li>
+        <li><a href="cart.html">Cart 🛒</a></li>
+        <li><a href="#">Items</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  
+  <div class="search-bar">
+    <input type="text" id="searchInput" placeholder="Search products..." />
+  </div>
+
+  <section class="hero">
+    <h1>Welcome to ElectroShop</h1>
+    <p>Best Deals on Mobiles, Laptops, and More!</p>
+  </section>
+
+  <main class="products" id="productContainer">
+    <div class="product-card">
+      <img src="https://imgs.search.brave.com/98osPl0Na1D1YN87cpZ96p_IjBSXeFn54iH5JUBr0ks/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5pc3RvY2twaG90/by5jb20vaWQvMTIw/NTIyNDIyNC9waG90/by9nZW5lcmljLXNt/YXJ0cGhvbmUtZGVz/aWduLXdpdGgtd2Fs/bHBhcGVyLWltYWdl/LW9uLXRoZS1zY3Jl/ZW4uanBnP3M9NjEy/eDYxMiZ3PTAmaz0y/MCZjPVVHczM1Y2pw/dV9HR3VLUGltWHVD/TzQxbTdQYXpvMXQ1/VjZfUTNsMkhvVWs9" height="430" alt="Smartphone">
+      <h3>Smartphone X</h3>
+      <p>₹49,999</p>
+      <button onclick="addToCart('Smartphone X', 49999)">Add to Cart</button>
+    </div>
+    <div class="product-card">
+      <img src="https://imgs.search.brave.com/-fSGo3E2qaDTQZfJqTVGt46XKmE5Gt34-TPe43qbvXQ/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5pc3RvY2twaG90/by5jb20vaWQvNjIx/NTg2MTg0L3Bob3Rv/L2xhcHRvcC5qcGc_/cz02MTJ4NjEyJnc9/MCZrPTIwJmM9VGJr/bzFubHc5MlNpbDBB/SHlJQXU2emZnQUFH/YlhqMzlXdF9Zck5Y/WGd6cz0" height="430" alt="Laptop">        
+      <h3>Laptop Pro</h3>
+      <p>₹89,999</p>
+      <button onclick="addToCart('Laptop Pro', 89999)">Add to Cart</button>
+    </div>
+    <div class="product-card">
+      <img src="https://imgs.search.brave.com/AV3tgJcE6CqvnLBP7d9cijEhP5HCHC1-LGPN9gBCCVQ/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5pc3RvY2twaG90/by5jb20vaWQvNTAw/NTc0NzI5L3Bob3Rv/L2xlZC1kaXNwbGF5/LXR2LmpwZz9zPTYx/Mng2MTImdz0wJms9/MjAmYz1YVEtieDJP/TEJEamNPRVZnczRV/NnUwRzVCanR4MVBI/dGRicHNlQm9JZUJV/PQ" alt="TV">
+      <h3>TV</h3>
+      <p>₹59,999</p>
+      <button onclick="addToCart('TV',59999)">Add to cart</button>
+    </div>
+    <div class="product-card">
+      <img src="https://imgs.search.brave.com/AyJ_rmrTgJHUyCFXwG76mAVF5wbdylA9-LXGDhH2D0g/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvNTIz/NTcyNTM0L3Bob3Rv/L3N0dWRpby1zaG90/LW9mLWhlYWRwaG9u/ZXMtdHVycXVvaXNl/LWJhY2tncm91bmQu/anBnP3M9NjEyeDYx/MiZ3PTAmaz0yMCZj/PWU2Qmg2dkFpZGtD/aGVmRnBhQlZTbVBv/akhlNnhQSlZFSmFS/QlJqRHVpNTg9" height="400" alt="Headphones">
+      <h3>Noise Cancelling Headphones</h3>
+      <p>₹7,999</p>
+      <button onclick="addToCart('Noise Cancelling Headphones', 7999)">Add to Cart</button>
+    </div>
+    <div class="product-card">
+        <img src="https://imgs.search.brave.com/NtjA4Sm7Z5A1hOjYrTXqzkn4J2MgUCXrRPcOtfF2nOA/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvMTQw/NDYxNzY1MC9waG90/by9waG9uZS1jaGFy/Z2VyLXdoaXRlLWNv/bG9yLW9uLXRoZS10/YWJsZS5qcGc_cz02/MTJ4NjEyJnc9MCZr/PTIwJmM9dHlDS0lS/VmdnNHZZWExVVW5n/eVF0MTg5b2JVamtK/NzhaZTVUM0ZMOV8z/Zz0" height="400" alt="Charger">
+        <h3>Phone charger</h3>
+        <p>₹1,999</p>
+        <button onclick="addToCart('Phone Charger',1999)">Add to cart</button>
+    </div>
+    <div class="product-card">
+        <img src="https://imgs.search.brave.com/6QqVSttmUzoSAu9E4208yb3vImHXnjHPDWJew2_qsdo/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9pNS53/YWxtYXJ0aW1hZ2Vz/LmNvbS9zZW8vNjVX/LUxhcHRvcC1DaGFy/Z2VyLVN1cmZhY2Ut/UHJvLTktOC03LTct/Ni01LTQtMy1YLVdp/bmRvd3MtU3VyZmFj/ZS1MYXB0b3AtNS00/LTMtMi0xLVN0dWRp/by1TdXJmYWNlLUdv/LVRhYmxldC1TdXJm/YWNlLUJvb2stMy0y/LTEtU3VwcG9ydC00/NFctMzZXLUxFRC03/LThfNWUxZTY3ZjMt/ZjgzYi00YzZmLWEz/NjktYTBjMThmODg4/M2FjLjNiZmRhMWY3/MTQ3OWE3YTRhZGFh/NzI1NDJmOGI2MmY3/LmpwZWc_b2RuSGVp/Z2h0PTU4MCZvZG5X/aWR0aD01ODAmb2Ru/Qmc9RkZGRkZG" height="400" alt="Charger">
+        <h3>Laptop charger</h3>
+        <p>₹5,999</p>
+        <button onclick="addToCart('Laptop Charger',5999)">Add to cart</button>
+    </div>
+    <div class="product-card">
+      <img src="https://imgs.search.brave.com/-lj5czwbl0P1YFVlEnBnlnI9qtReUlKRMG0yj-oVDAY/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9pLnBp/bmltZy5jb20vb3Jp/Z2luYWxzLzRiLzZm/L2QwLzRiNmZkMDlj/OWI0ZmFjOGM0NDU4/ZjUyNjhkNTczYmU4/LmpwZw" alt="camera">
+      <h3>DSLR Camera</h3>
+      <p>₹45,999</p>
+      <button onclick="addToCart('DSLR Camera',45999)">Add to cart</button>
+    </div>
+    <div class="product-card">
+      <img src="https://imgs.search.brave.com/b4yzM_J9PGsIe6wnXL3_niRmBcj-zTEGRIrr9b2GO-8/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9pLnBp/bmltZy5jb20vb3Jp/Z2luYWxzLzY5L2Ni/L2QxLzY5Y2JkMTYx/MDFkYzZiY2FiOTRl/MTc2NmMwNWFjMTI1/LmpwZw" alt="Smart Watch">
+      <h3>Smart Watch</h3>
+      <p>₹10,999</p>
+      <button onclick="addToCart('Smart Watch',10999)">Add to cart</button>
+    </div>
+    <div class="product-card">
+      <img src="https://imgs.search.brave.com/CXrB0azL5FAn5sOejkpdRL_H40CdVy1Zi0ejlRAQ538/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5pc3RvY2twaG90/by5jb20vaWQvNDgx/ODIwOTY0L3Bob3Rv/L3dvbWFuLWF0LWhv/bWUtbGlzdGVuaW5n/LXRvLW11c2ljLmpw/Zz9zPTYxMng2MTIm/dz0wJms9MjAmYz11/MHhkdE5XWHY4enE4/ejdoUHNmd0xDTGRw/bGc1MF9OSHdKdXBt/dGViYWRNPQ" alt="Bluetooth Speaker">
+      <h3>Bluetooth Speaker</h3>
+      <p>₹3,999</p>
+      <button onclick="addToCart('Bluetooth Speaker',3999)">Add to cart</button>
+    </div>
+    <div class="product-card">
+      <img src="https://imgs.search.brave.com/cEH1Z9NXifft1E86kmxxyEQS9eftinfHlvJFO2O-paE/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5pc3RvY2twaG90/by5jb20vaWQvMTMz/ODg4MjQ1MC9waG90/by9hLWJsdWV0b290/aC1oZWFkc2V0LWJs/dWUtY29sb3ItaXNv/bGF0ZWQtb24td2hp/dGUtYmFja2dyb3Vu/ZC1jbG9zZXVwLXNo/b3QuanBnP3M9NjEy/eDYxMiZ3PTAmaz0y/MCZjPXI3Wk9CZFNp/Y2hrY282dGFCRkQy/aTB4b0swVGRJNGNN/NWp4RVFudWFGOTg9"alt="Bluetooth Earphone">
+      <img src="https://imgs.search.brave.com/PhxcA5Behape53qv1TBs7Oqb5BGjxbWPgqSyo00s04k/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly90aHVt/YnMuZHJlYW1zdGlt/ZS5jb20vYi9uZWNr/YmFuZC1pbWFnZS1i/bHVldG9vdGgtaGVh/ZHNldC1yZWQtd2ly/ZWQtZWFycGhvbmVz/LXdpcmVsZXNzLTIz/MTczOTE3Ni5qcGc"alt="Earphone">
+      <h3>Bluetooth Earphone</h3>
+      <p>₹1,200</p>
+      <button onclick="addToCart('Bluetooth Earphone',1200)">Add to cart</button>
+    </div>
+    
+    <div class="product-card">
+      <img src="https://imgs.search.brave.com/wPq7BXmWKYKRuNHKyW7xFOdOf0eVkx8Huk4PRLJN8O4/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvMTMx/ODg0MjgxMi9waG90/by9oaWdoLWFuZ2xl/LXZpZXctb2Ytd2ly/ZWxlc3Mtc3RlcmVv/LWVhcmJ1ZHMtYmxh/Y2stYW5kLWNoYXJn/aW5nLWNhc2UuanBn/P3M9NjEyeDYxMiZ3/PTAmaz0yMCZjPXBz/bmFmMjVPN1ZsSW1N/VWMxY1IxbUxHaUdv/UzB1V0toYTBnWWVT/aVdob2s9" alt="Air buds">
+      <h3>Air Budds</h3>
+      <p>₹2,299</p>
+      <button onclick="addToCart('Airbudds',2299)">Add to cart</button>
+    </div>
+    <div class="product-card">
+      <img src="https://imgs.search.brave.com/M9mKTpGLo48JFoGhp3Swb_I8KNJifW4jjtc8IQEM_cE/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5pc3RvY2twaG90/by5jb20vaWQvMTA2/NzgwODg2Ni9waG90/by9jb21wdXRlci1t/b3VzZS1vbi1ibGFj/ay1iYWNrZ3JvdW5k/LmpwZz9zPTYxMng2/MTImdz0wJms9MjAm/Yz1CNkhES3otOERX/aFBiR1YwdmlISjlj/SjJHYS11cDFLaVdj/N1ZKMzFSb0lrPQ" alt="Wired mouse">
+      <h3>Wired Mouse</h3>
+      <p>₹1,299</p>
+      <button onclick="addToCart('Wired Mouse',1299)">Add to cart</button>
+    </div>
+    <div class="product-card">
+      <img src="https://imgs.search.brave.com/ipcIGRkjPsjOdbdoj2vNTS-HvbjWFUGiG2MKIV_ciTY/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvMTg0/OTc0NjQ5L3Bob3Rv/L2lzb2xhdGVkLXNo/b3Qtb2Ytd2lyZWxl/c3MtY29tcHV0ZXIt/bW91c2Utb24td2hp/dGUtYmFja2dyb3Vu/ZC5qcGc_cz02MTJ4/NjEyJnc9MCZrPTIw/JmM9X05GaFBNclgx/aTUzNGZFaERGLWZf/S2RETENwcEo3SEZE/ZFZtMEFXckpRRT0" alt="Wireless Mouse">
+      <h3>Wireless Mouse</h3>
+      <p>₹1,799</p>
+      <button onclick="addToCart('Wireless Mouse',1799)">Add to cart</button>
+    </div>
+    
+
+<div class="product-card">
+  <img src="https://rukminim2.flixcart.com/image/612/612/xif0q/mobile/u/j/x/-original-imahyzwzhxr7hjgr.jpeg?q=70" alt="Smartphone">
+  <h3>Smartphone</h3>
+  <p>₹12,499</p>
+  <button onclick="addToCart('smartphone', 12499)">Add to cart</button>
+</div>
+
+<div class="product-card">
+  <img src="https://rukminim2.flixcart.com/image/612/612/kxtaxzk0/mouse/e/j/k/zeb-transformer-m-zebronics-original-imaga3zw3qtbk7m8.jpeg?q=70" alt="Gaming Mouse">
+  <h3>Gaming Mouse</h3>
+  <p>₹749</p>
+  <button onclick="addToCart('gaming-mouse', 749)">Add to cart</button>
+</div>
+
+<div class="product-card">
+  <img src="https://rukminim2.flixcart.com/image/612/612/l1jmc280/speaker/mobile-tablet-speaker/q/b/a/jbl-go-2-jbl-original-imagdgyfhrhswgda.jpeg?q=70" alt="Portable Speaker">
+  <h3>Portable Speaker</h3>
+  <p>₹1,999</p>
+  <button onclick="addToCart('portable-speaker', 1999)">Add to cart</button>
+</div>
+
+<div class="product-card">
+  <img src="https://rukminim2.flixcart.com/image/612/612/xif0q/monitor/m/y/u/-original-imahyz3qyyvhv39c.jpeg?q=70" alt="LED Monitor">
+  <h3>LED Monitor</h3>
+  <p>₹7,999</p>
+  <button onclick="addToCart('led-monitor', 7999)">Add to cart</button>
+</div>
+
+<div class="product-card">
+  <img src="https://rukminim2.flixcart.com/image/612/612/xif0q/keyboard/k/m/y/-original-imahyz6wxqhvkg9z.jpeg?q=70" alt="Wireless Keyboard">
+  <h3>Wireless Keyboard</h3>
+  <p>₹1,199</p>
+  <button onclick="addToCart('wireless-keyboard', 1199)">Add to cart</button>
+</div>
+
+
+<div class="product-card">
+  <img src="https://rukminim2.flixcart.com/image/612/612/xif0q/headphone/j/h/v/-original-imagp7qybsgvmj6z.jpeg?q=70" alt="Bluetooth Headphones">
+  <h3>Bluetooth Headphones</h3>
+  <p>₹2,299</p>
+  <button onclick="addToCart('bluetooth-headphones', 2299)">Add to cart</button>
+</div>
+
+<div class="product-card">
+  <img src="https://rukminim2.flixcart.com/image/612/612/kxtaxzk0/mouse/e/j/k/zeb-transformer-m-zebronics-original-imaga3zw3qtbk7m8.jpeg?q=70" alt="Gaming Mouse">
+  <h3>Gaming Mouse</h3>
+  <p>₹749</p>
+  <button onclick="addToCart('gaming-mouse', 749)">Add to cart</button>
+</div>
+
+<div class="product-card">
+  <img src="https://rukminim2.flixcart.com/image/612/612/k3dc7m80/speaker/mobile-tablet-speaker/e/g/k/boat-stone-200-boat-original-imaffhwd7bg2hvf6.jpeg?q=70" alt="Portable Speaker">
+  <h3>Portable Speaker</h3>
+  <p>₹1,299</p>
+  <button onclick="addToCart('portable-speaker', 1299)">Add to cart</button>
+</div>
+
+<div class="product-card">
+  <img src="https://rukminim2.flixcart.com/image/612/612/xif0q/monitor/m/y/u/-original-imahyz3qyyvhv39c.jpeg?q=70" alt="LED Monitor">
+  <h3>LED Monitor</h3>
+  <p>₹7,999</p>
+  <button onclick="addToCart('led-monitor', 7999)">Add to cart</button>
+</div>
+
+<div class="product-card">
+  <img src="https://rukminim2.flixcart.com/image/612/612/kz065jk0/keyboard/wired-keyboard/z/7/q/zeb-k35-zebronics-original-imagbgyahggdhmpk.jpeg?q=70" alt="Wired Keyboard">
+  <h3>Wired Keyboard</h3>
+  <p>₹649</p>
+  <button onclick="addToCart('wired-keyboard', 649)">Add to cart</button>
+</div>
+
+<div class="product-card">
+  <img src="https://rukminim2.flixcart.com/image/612/612/l2f20sw0/memory-card/sdxc-uhs-i-card/y/z/w/sdsqxa1-256g-gn6mn-sandisk-original-imagdr4zn9svemdu.jpeg?q=70" alt="MicroSD Card">
+  <h3>MicroSD Card 256GB</h3>
+  <p>₹1,099</p>
+  <button onclick="addToCart('microsd-card', 1099)">Add to cart</button>
+</div><div class="product-card">
+  <img src="https://imgs.search.brave.com/PVUCiHcQp5qvG76L3DT144Gm5yFDMdR3F8vnhr8rw3E/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9tLm1l/ZGlhLWFtYXpvbi5j/b20vaW1hZ2VzL0kv/NjFuU0YreHFKM0wu/anBn" alt="Wireless Charging Power Bank + Earbuds">
+  <h3>Wireless Power Bank + Earbuds</h3>
+  <p>₹2,199</p>
+  <button onclick="addToCart('wireless-powerbank-earbuds', 2199)">Add to cart</button>
+</div>
+
+<div class="product-card">
+  <img src="https://imgs.search.brave.com/h8-MjsD4XDhK5A6_V-fY5fLZ2TDHXTRXvwNOE6Bgebc/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9pbWFn/ZXMtbmEuc3NsLWlt/YWdlcy1hbWF6b24u/Y29tL2ltYWdlcy9J/LzYxdUV2Vm9pem9M/LmpwZw" alt="True Wireless Earbuds with Power Bank Case">
+  <h3>True Wireless Earbuds</h3>
+  <p>₹1,999</p>
+  <button onclick="addToCart('tws-earbuds', 1999)">Add to cart</button>
+</div>
+
+<div class="product-card">
+  <img src="https://imgs.search.brave.com/vLLNButthXB9_w8lvoCAweIlqe6VJOwyoUpjHwiZUDc/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9pNS53/YWxtYXJ0aW1hZ2Vz/LmNvbS9zZW8vU29u/eS1XSC0xMDAwWE00/LVdpcmVsZXNzLU5v/aXNlLUNhbmNlbGlu/Zy1PdmVyLUVhci1I/ZWFkcGhvbmVzLVNp/bHZlci1XSDEwMDBY/TTQtQnVuZGxlLVdh/bGwtQ2hhcmdlci13/aXRoLVVTQi1UeXBl/LUMtQ2FibGVfMDg5/MDQ2NTEtNTkyYi00/Njc5LWE5MTMtYjhk/ZGFlMWJkMGM5LmEy/ZDUzNGNhMDJjMWJl/YTZmMjI4YzEwNzI3/Y2NkZDdhLmpwZWc_/b2RuSGVpZ2h0PTY0/MCZvZG5XaWR0aD02/NDAmb2RuQmc9RkZG/RkZG" alt="Sony Headphones + Wireless Charger">
+  <h3>Sony Over‑Ear ANC Headphones + Charger</h3>
+  <p>₹18,499</p>
+  <button onclick="addToCart('sony-anc-headphones', 18499)">Add to cart</button>
+</div>
+
+<div class="product-card">
+  <img src="https://imgs.search.brave.com/1kvrU01BiGGQXTahsh_31j14EBqnlWbi--tOS-_Rym4/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9tLm1l/ZGlhLWFtYXpvbi5j/b20vaW1hZ2VzL0kv/MzFIMWpLUWg3WUwu/anBn" alt="4‑in‑1 Magnetic Power Pack">
+  <h3>Magnetic 4‑in‑1 Power Pack</h3>
+  <p>₹3,499</p>
+  <button onclick="addToCart('magnetic-power-pack', 3499)">Add to cart</button>
+</div>
+
+
+
+
+  </main>
+
+  <footer>
+    <p>&copy; 2025 ElectroShop. All rights reserved.</p>
+  </footer>
+
+  <link rel="stylesheet" href="ecom-style.css" />
+  <script src="cart.js"></script>
+
+  
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const searchInput = document.getElementById("searchInput");
+      const productCards = document.querySelectorAll(".product-card");
+
+      searchInput.addEventListener("input", function () {
+        const query = searchInput.value.toLowerCase();
+        productCards.forEach(card => {
+          const name = card.querySelector("h3").textContent.toLowerCase();
+          card.style.display = name.includes(query) ? "block" : "none";
+        });
+      });
+    });
+  </script>
+  <link rel="stylesheet" href="ecomstyle.css" />
+
+</body>
+</html>

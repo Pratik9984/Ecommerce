@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Customer Info</title>
+  <link rel="stylesheet" href="customer.css" />
+</head>
+<body>
+  <div class="container">
+    <div class="summary-box" id="summaryBox">
+      <h3>🛍️ Order Summary</h3>
+      <div id="itemSummary"></div>
+      <div class="summary-total" id="totalAmount"></div>
+    </div>
+
+    <form id="customerForm">
+      <h2>Enter Your Details</h2>
+
+      <label for="name">Full Name</label>
+      <input type="text" id="name" required>
+
+      <label for="email">Email</label>
+      <input type="email" id="email" required>
+
+      <label for="phone">Phone Number</label>
+      <input type="tel" id="phone" pattern="[0-9]{10}" required>
+
+      <label for="address">Shipping Address</label>
+      <textarea id="address" rows="4" required></textarea>
+
+      <button type="submit">Submit Order</button>
+    </form>
+  </div>
+
+  <script>
+    const itemSummary = document.getElementById("itemSummary");
+    const totalAmount = document.getElementById("totalAmount");
+    const buyNowItem = JSON.parse(localStorage.getItem("buyNowItem"));
+    let total = 0;
+
+    if (!buyNowItem) {
+      itemSummary.innerHTML = `<p>No item selected. Please go back to cart.</p>`;
+    } else if (Array.isArray(buyNowItem)) {
+      buyNowItem.forEach(item => {
+        const div = document.createElement("div");
+        div.className = "summary-item";
+        div.innerHTML = `<span>${item.name}</span><span>₹${item.price}</span>`;
+        itemSummary.appendChild(div);
+        total += item.price;
+      });
+    } else {
+      const div = document.createElement("div");
+      div.className = "summary-item";
+      div.innerHTML = `<span>${buyNowItem.name}</span><span>₹${buyNowItem.price}</span>`;
+      itemSummary.appendChild(div);
+      total = buyNowItem.price;
+    }
+
+    if (total > 0) {
+      totalAmount.textContent = `Total: ₹${total}`;
+    }
+
+    document.getElementById("customerForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      const customer = {
+        name: document.getElementById("name").value.trim(),
+        email: document.getElementById("email").value.trim(),
+        phone: document.getElementById("phone").value.trim(),
+        address: document.getElementById("address").value.trim()
+      };
+
+      // Store customer details in localStorage
+      localStorage.setItem("customerData", JSON.stringify(customer));
+
+      alert("Customer details saved successfully!");
+      window.location.href = "payment.html";
+    });
+  </script>
+</body>
+</html>

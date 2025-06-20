@@ -1,0 +1,341 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Body */
+body {
+  background: linear-gradient(135deg, #f9f7f2, #dfe3e6);
+  color: #1a2b4a;
+  line-height: 1.8;
+  padding: 2rem;
+}
+
+/* Container */
+.container {
+  max-width: 960px;
+  margin: 3rem auto;
+  animation: slideIn 0.8s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Summary Box */
+.summary-box {
+  background: linear-gradient(145deg, #ffffff, #edf2f4);
+  padding: 2.2rem;
+  border-radius: 20px;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.15);
+  margin-bottom: 3rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.summary-box:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.2);
+}
+
+.summary-box h3 {
+  margin: 0 0 1.5rem;
+  color: #06d6a0;
+  font-size: 1.9rem;
+  font-weight: 700;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Summary Items */
+.summary-item {
+  padding: 1rem 0.5rem;
+  border-bottom: 2px solid #dfe3e6;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #1a2b4a;
+  background-color: #ffffff;
+  border-radius: 8px;
+  margin: 0.5rem 0;
+  animation: itemFadeIn 0.6s ease-out;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.summary-item:hover {
+  background-color: #f1f4ff;
+  transform: translateX(5px);
+}
+
+@keyframes itemFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.summary-item span:last-child {
+  color: #f48c06;
+  font-weight: 700;
+  min-width: 100px;
+  text-align: right;
+}
+
+/* Total */
+.summary-total {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #f48c06;
+  margin-top: 1.5rem;
+  text-align: right;
+  position: relative;
+  text-transform: uppercase;
+  padding: 0.5rem 0;
+}
+
+.summary-total::after {
+  content: '';
+  display: block;
+  width: 140px;
+  height: 4px;
+  background: linear-gradient(to right, #f48c06, #ffba08);
+  position: absolute;
+  right: 0;
+  bottom: -0.5rem;
+  border-radius: 2px;
+}
+
+/* No Items Message */
+#itemSummary p {
+  text-align: center;
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: #6b7280;
+  padding: 2rem;
+  background-color: #f1f4ff;
+  border-radius: 14px;
+  margin: 1rem 0;
+  border: 1px solid #dfe3e6;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+#itemSummary p:hover {
+  background-color: #e0e7ff;
+  transform: scale(1.02);
+}
+
+#itemSummary p::before {
+  content: '🛒 ';
+  font-size: 1.6rem;
+}
+
+#itemSummary p a {
+  color: #5e60ce;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease, text-decoration 0.3s ease;
+}
+
+#itemSummary p a:hover {
+  color: #4834d4;
+  text-decoration: underline;
+}
+
+/* Form */
+form {
+  background: linear-gradient(145deg, #ffffff, #edf2f4);
+  padding: 2.5rem;
+  border-radius: 20px;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: slideIn 0.8s ease-out 0.2s;
+  animation-fill-mode: backwards;
+}
+
+form:hover {
+  transform: scale(1.02);
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.2);
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #1a2b4a;
+  font-size: 2.2rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Form Labels and Inputs */
+label {
+  display: block;
+  margin-bottom: 0.6rem;
+  font-weight: 600;
+  color: #1a2b4a;
+  font-size: 1.2rem;
+  transition: color 0.3s ease;
+}
+
+label:hover {
+  color: #5e60ce;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 1rem 1.5rem;
+  margin-bottom: 1.8rem;
+  border: 2px solid #dfe3e6;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  background-color: #f9f7f2;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+input:focus, textarea:focus {
+  outline: none;
+  border-color: #5e60ce;
+  box-shadow: 0 0 10px rgba(94, 96, 206, 0.4);
+  background-color: #ffffff;
+}
+
+/* Submit Button */
+button {
+  width: 100%;
+  padding: 1.3rem;
+  font-size: 1.3rem;
+  background: linear-gradient(135deg, #5e60ce, #4834d4);
+  color: #f9f7f2;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 700;
+  text-transform: uppercase;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: pulse 2s infinite ease-in-out;
+}
+
+button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(94, 96, 206, 0.5);
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.04);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .container {
+    margin: 2rem 1rem;
+  }
+
+  .summary-box, form {
+    padding: 1.8rem;
+  }
+
+  h2 {
+    font-size: 1.9rem;
+  }
+
+  .summary-box h3 {
+    font-size: 1.7rem;
+  }
+
+  .summary-item {
+    font-size: 1.1rem;
+    padding: 0.8rem 0.4rem;
+  }
+
+  .summary-total {
+    font-size: 1.4rem;
+  }
+
+  label {
+    font-size: 1.1rem;
+  }
+
+  input, textarea {
+    padding: 0.9rem 1.2rem;
+    font-size: 1rem;
+  }
+
+  button {
+    padding: 1.1rem;
+    font-size: 1.2rem;
+  }
+
+  #itemSummary p {
+    font-size: 1.2rem;
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    margin: 1.5rem 0.8rem;
+  }
+
+  .summary-box, form {
+    padding: 1.5rem;
+  }
+
+  h2 {
+    font-size: 1.7rem;
+  }
+
+  .summary-box h3 {
+    font-size: 1.5rem;
+  }
+
+  .summary-item {
+    font-size: 1rem;
+    padding: 0.7rem 0.3rem;
+  }
+
+  .summary-total {
+    font-size: 1.3rem;
+  }
+
+  label {
+    font-size: 1rem;
+  }
+
+  input, textarea {
+    padding: 0.8rem 1rem;
+    font-size: 0.95rem;
+  }
+
+  button {
+    padding: 1rem;
+    font-size: 1.1rem;
+  }
+
+  #itemSummary p {
+    font-size: 1.1rem;
+    padding: 1.2rem;
+  }
+}

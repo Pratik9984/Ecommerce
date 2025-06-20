@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Purchase Summary</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to right, #6dd5ed, #2193b0);
+      color: #fff;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      padding: 1rem 2rem;
+      background-color: #1a1a2e;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #00f5c6;
+    }
+
+    main {
+      flex-grow: 1;
+      padding: 2rem;
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+
+    .item-card {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 1rem 1.5rem;
+      margin: 1rem auto;
+      border-radius: 12px;
+      max-width: 600px;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    }
+
+    .item-card p {
+      font-size: 1.1rem;
+      margin: 0.3rem 0;
+    }
+
+    .total {
+      font-size: 1.3rem;
+      font-weight: bold;
+      margin-top: 2rem;
+      text-align: center;
+    }
+
+    .back-btn {
+      display: block;
+      margin: 2rem auto 0;
+      padding: 0.7rem 2rem;
+      font-size: 1rem;
+      background-color: #00c9a7;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .back-btn:hover {
+      background-color: #008f79;
+    }
+
+    footer {
+      background-color: #0f0f1d;
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">ElectroShop</div>
+  </header>
+
+  <main>
+    <h1>🎉 Purchase Summary</h1>
+    <div id="itemList"></div>
+    <p class="total" id="totalAmount"></p>
+    <button class="back-btn" onclick="goBack()">Confirm Purchase</button>
+  </main>
+
+  <footer>
+    &copy; 2025 ElectroShop. All rights reserved.
+  </footer>
+
+  <script>
+    function displayItems() {
+      const itemData = JSON.parse(localStorage.getItem("buyNowItem"));
+      const itemList = document.getElementById("itemList");
+      const totalDisplay = document.getElementById("totalAmount");
+      itemList.innerHTML = '';
+      let total = 0;
+
+      if (!itemData || (Array.isArray(itemData) && itemData.length === 0)) {
+        itemList.innerHTML = "<p>No items to show.</p>";
+        totalDisplay.innerText = "";
+        return;
+      }
+
+      const items = Array.isArray(itemData) ? itemData : [itemData];
+
+      items.forEach(item => {
+        const name = item.name || "Unknown Product";
+        const price = parseFloat(item.price) || 0;
+
+        const div = document.createElement("div");
+        div.className = "item-card";
+        div.innerHTML = `
+          <p><strong>Product:</strong> ${name}</p>
+          <p><strong>Price:</strong> ₹${price.toFixed(2)}</p>
+        `;
+        itemList.appendChild(div);
+        total += price;
+      });
+
+      totalDisplay.innerText = `Total Paid: ₹${total.toFixed(2)}`;
+      localStorage.removeItem("buyNowItem");
+    }
+
+    function goBack() {
+      window.location.href = "buynow.html";
+    }
+
+    displayItems();
+  </script>
+</body>
+</html>
